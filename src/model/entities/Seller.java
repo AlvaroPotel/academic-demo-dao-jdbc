@@ -3,27 +3,28 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Seller implements Serializable{
+public class Seller implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String name;
 	private String email;
 	private Date birthDate;
 	private Double baseSalary;
-	
-	//list
-	
-	public Seller() {
-		}
 
-	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary) {
+	private Department department;
+
+	public Seller() {
+	}
+
+	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.birthDate = birthDate;
 		this.baseSalary = baseSalary;
+		this.setDepartment(department);
 	}
 
 	public Integer getId() {
@@ -66,6 +67,14 @@ public class Seller implements Serializable{
 		this.baseSalary = baseSalary;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,11 +102,7 @@ public class Seller implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Seller: id = " + id 
-				+ ", name = " + name 
-				+ ", emai = " + email 
-				+ ", birthDate = " + birthDate 
-				+ ", baseSalary = "	+ baseSalary;
+		return "Seller: id = " + id + ", name = " + name + ", emai = " + email + ", birthDate = " + birthDate
+				+ ", baseSalary = " + baseSalary + ", department = " + department;
 	}
-	
 }
